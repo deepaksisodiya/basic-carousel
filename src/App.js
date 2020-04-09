@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import Carousel from './Carousel';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component () {
+  constructor(props) {
+    super(props);
+    this.state = {
+      imageArr:[
+        "https://i.picsum.photos/id/237/500/500.jpg",
+        "https://i.picsum.photos/id/238/500/500.jpg",
+        "https://i.picsum.photos/id/239/500/500.jpg",
+        "https://i.picsum.photos/id/240/500/500.jpg",
+        "https://i.picsum.photos/id/241/500/500.jpg"
+      ]
+    }
+  }
+  render() {
+    return (
+      <Carousel imageArr={this.state.imageArr} />
+    )
+  }
+  
 }
 
 export default App;
