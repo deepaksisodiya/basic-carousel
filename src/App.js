@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Carousel from './Carousel';
+import Slider from './Slider';
 
 class App extends Component {
   constructor(props) {
@@ -16,7 +16,7 @@ class App extends Component {
   }
   render() {
     return (
-      <Carousel imageArr={this.state.imageArr} />
+      <Slider imageArr={this.state.imageArr} />
     )
   }
   
