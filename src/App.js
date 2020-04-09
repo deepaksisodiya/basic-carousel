@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import './App.css';
 import Carousel from './Carousel';
 
-class App extends Component () {
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
