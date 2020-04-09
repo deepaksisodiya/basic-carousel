@@ -1,23 +1,12 @@
 import React, { useState } from 'react';
 
+import ImgCom from './ImgCom';
+
 import './slider.scss';
 
-function ImgCom({ src }) {
-  let imageStyles = {
-    width: 100 + "%",
-    height: 100 + "%"
-  }
-  return <img src={src} alt="s" style={imageStyles}></img>
-}
-
-function Slider() {
-  const imageArr = [
-    <ImgCom src="https://i.picsum.photos/id/237/800/800.jpg" />,
-    <ImgCom src="https://i.picsum.photos/id/238/800/800.jpg" />,
-    <ImgCom src="https://i.picsum.photos/id/239/800/800.jpg" />,
-    <ImgCom src="https://i.picsum.photos/id/240/800/800.jpg" />,
-    <ImgCom src="https://i.picsum.photos/id/241/800/800.jpg" />
-  ];
+function Slider({ imageArr }) {
+  const ImageCompArr = imageArr.map((src, index) => <ImgCom src={src} />)
+  
   const [x, setX] = useState(0);
 
   const goLeft = () => (x === 0) ? setX(-100*(imageArr.length - 1)) : setX(x + 100);
@@ -27,10 +16,10 @@ function Slider() {
   return (
     <div className="slider">
       {
-        imageArr.map((url, index) => {
+        ImageCompArr.map((imageCom, index) => {
           return (
             <div key={index} className="slide" style={{ transform: `translateX(${x}%)` }}>
-              {url}
+              {imageCom}
             </div>
           )
         })
