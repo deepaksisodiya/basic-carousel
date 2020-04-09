@@ -12,17 +12,19 @@ export default class Carousel extends Component {
   findImageURL = () => this.props.imageArr[this.state.currentImageIndex]
 
   onClickPrevious = () => {
+    const { imageArr } = this.props;
     this.setState((previousState) => {
       if (previousState.currentImageIndex === 0) {
-        return { currentImageIndex: this.props.imageArr.length - 1  };
+        return { currentImageIndex: imageArr.length - 1  };
       }
       return { currentImageIndex: previousState.currentImageIndex - 1  };
     });
   }
 
   onClickNext = () => {
+    const { imageArr } = this.props;
     this.setState((previousState) => {
-      if (previousState.currentImageIndex === this.props.imageArr.length - 1) {
+      if (previousState.currentImageIndex === imageArr.length - 1) {
         return { currentImageIndex: 0  };
       }
       return { currentImageIndex: previousState.currentImageIndex + 1  };
