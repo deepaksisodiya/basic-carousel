@@ -7,7 +7,7 @@
 ## How to setup
 
 ```
-git clone https://github.com/deepaksisodiya/basic-carousel.git
+git clone https://github.com/deepaksisodiya/carousel.git
 yarn install
 ```
 

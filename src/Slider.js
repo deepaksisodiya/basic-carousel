@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './slider.scss';
 
@@ -11,19 +11,25 @@ const imageArr = [
 ]
 
 function Slider() {
- return (
+  const [x, setX] = useState(0);
+
+  const goLeft = () => (x === 0) ? setX(-100*(imageArr.length - 1)) : setX(x + 100);
+
+  const goRight = () => ((x === -100*(imageArr.length - 1))) ? setX(0) : setX(x - 100);
+
+  return (
     <div className="slider">
       {
         imageArr.map((url, index) => {
           return (
-            <div key={index} className="slide">
+            <div key={index} className="slide" style={{ transform: `translateX(${x}%)` }}>
               {url}
             </div>
           )
         })
       }
-      <button id="left">Left</button>
-      <button id="right">Right</button>
+      <button id="left" onClick={goLeft}>Left</button>
+      <button id="right" onClick={goRight}>Right</button>
     </div>
   )
 }
